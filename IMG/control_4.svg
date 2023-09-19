@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.768591in" height="0.953512in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 768 952"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:black;stroke-width:13.8679}
+    .str0 {stroke:#FEFEFE;stroke-width:13.8679}
+    .str2 {stroke:black;stroke-width:13.8679;stroke-linecap:round}
+    .fil0 {fill:none}
+    .fil3 {fill:none;fill-rule:nonzero}
+    .fil1 {fill:black;fill-rule:nonzero}
+    .fil2 {fill:red;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0 str0" x="7" y="7" width="754" height="935"/>
+  <path class="fil1 str1" d="M248 231l0 168 -235 0 0 277 101 0 0 -87 6 0 0 356 -6 0 0 -265 -107 0 0 -286 236 0 0 -161 -64 0 0 -222 411 0 0 222 -64 0 0 161 235 0 0 286 -107 0 0 265 -5 0c0,-118 0,-238 0,-356l5 0 0 87 102 0 0 -277 -236 0 0 -307 -272 0 0 139 0 0 0 0zm278 -141l0 138 59 0 0 -212 -401 0 0 212 59 0 0 -140 283 0 0 2 0 0z"/>
+  <g id="_1276934649360">
+   <path class="fil2 str1" d="M295 167l54 0 -54 0zm0 0l0 0z"/>
+   <path id="_1" class="fil3 str2" d="M295 167l54 0m-54 0l0 0z"/>
+  </g>
+  <line class="fil3 str2" x1="413" y1="167" x2="468" y2= "167" />
+  <path class="fil3 str2" d="M405 259c-15,24 -33,25 -51,0"/>
+  <path class="fil3 str1" d="M355 219c0,0 0,0 0,0 0,9 -13,18 -29,18 -16,0 -29,-9 -29,-18 0,0 0,0 0,0 0,0 0,0 0,0 0,-11 13,-20 29,-20 16,0 29,9 29,20 0,0 0,0 0,0l0 0z"/>
+  <path class="fil3 str1" d="M465 219c0,0 0,0 0,0 0,9 -14,18 -30,18 -16,0 -29,-9 -29,-18 0,0 0,0 0,0 0,0 0,0 0,0 0,-11 13,-20 29,-20 16,0 30,9 30,20 0,0 0,0 0,0z"/>
+  <path class="fil3 str1" d="M333 219c0,9 -4,18 -7,18 -4,0 -8,-9 -8,-18 0,-11 4,-19 8,-19 3,0 7,8 7,19l0 0z"/>
+  <path class="fil3 str1" d="M443 219c0,9 -5,18 -8,18 -4,0 -8,-9 -8,-18 0,-11 4,-19 8,-19 3,0 8,8 8,19l0 0z"/>
+  <line class="fil3 str1" x1="317" y1="331" x2="439" y2= "331" />
+  <line class="fil3 str1" x1="115" y1="944" x2="652" y2= "944" />
+ </g>
+</svg>

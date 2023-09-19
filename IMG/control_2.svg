@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.734047in" height="0.944075in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 733 943"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:black;stroke-width:13.8669}
+    .str2 {stroke:#FEFEFE;stroke-width:6.93543}
+    .str1 {stroke:black;stroke-width:13.8669;stroke-linecap:round}
+    .fil0 {fill:none}
+    .fil2 {fill:none;fill-rule:nonzero}
+    .fil1 {fill:red;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polyline class="fil0 str0" points="272,281 272,371 115,371 115,524 187,524 187,475 187,712 108,712 108,788 272,788 272,712 458,712 458,788 622,788 622,712 543,712 543,475 543,524 615,524 615,371 458,371 458,204 272,204 272,281 229,281 229,162 501,162 501,281 458,281 "/>
+  <g id="_1276940308240">
+   <path class="fil1 str0" d="M306 246l36 0 -36 0zm0 0l0 0z"/>
+   <path id="_1" class="fil2 str1" d="M306 246l36 0m-36 0l0 0z"/>
+  </g>
+  <line class="fil2 str1" x1="384" y1="246" x2="421" y2= "246" />
+  <path class="fil2 str1" d="M378 296c-9,13 -21,14 -33,0"/>
+  <path class="fil2 str0" d="M346 273c0,0 0,0 0,0 0,7 -9,11 -20,11 -10,0 -20,-4 -20,-11 0,0 0,0 0,0 0,0 0,0 0,0 0,-5 10,-9 20,-9 11,0 20,4 20,9 0,0 0,0 0,0l0 0z"/>
+  <path class="fil2 str0" d="M419 273c0,0 0,0 0,0 0,7 -9,11 -20,11 -11,0 -19,-4 -19,-11 0,0 0,0 0,0 0,0 0,0 0,0 0,-5 8,-9 19,-9 11,0 20,4 20,9 0,0 0,0 0,0z"/>
+  <path class="fil2 str0" d="M331 273c0,6 -2,10 -5,10 -3,0 -5,-4 -5,-10 0,-5 2,-9 5,-9 3,0 5,4 5,9l0 0z"/>
+  <path class="fil2 str0" d="M403 273c0,6 -2,10 -4,10 -3,0 -5,-4 -5,-10 0,-5 2,-9 5,-9 2,0 4,4 4,9l0 0z"/>
+  <line class="fil2 str0" x1="320" y1="335" x2="402" y2= "335" />
+  <rect class="fil2 str2" x="3" y="3" width="726" height="936"/>
+ </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.769362in" height="0.951992in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 767 950"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:black;stroke-width:13.85}
+    .str0 {stroke:#FEFEFE;stroke-width:13.85}
+    .str2 {stroke:black;stroke-width:13.85;stroke-linecap:round}
+    .fil0 {fill:none}
+    .fil2 {fill:none;fill-rule:nonzero}
+    .fil1 {fill:red;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0 str0" x="7" y="7" width="754" height="936"/>
+  <polyline class="fil0 str1" points="253,189 253,322 27,322 27,549 129,549 129,477 129,828 16,828 16,942 253,942 253,828 520,828 520,942 755,942 755,828 643,828 643,477 643,549 746,549 746,322 520,322 520,75 253,75 253,189 191,189 191,12 581,12 581,189 520,189 "/>
+  <g id="_1277192192656">
+   <path class="fil1 str1" d="M302 136l50 0 -50 0zm0 0l0 0z"/>
+   <path id="_1" class="fil2 str2" d="M302 136l50 0m-50 0l0 0z"/>
+  </g>
+  <line class="fil2 str2" x1="413" y1="136" x2="466" y2= "136" />
+  <path class="fil2 str2" d="M407 210c-15,20 -33,21 -49,0"/>
+  <path class="fil2 str1" d="M358 178c0,0 0,0 0,0 0,8 -12,15 -28,15 -15,0 -27,-7 -27,-15 0,0 0,0 0,0 0,0 0,0 0,0 0,-9 12,-16 27,-16 16,0 28,7 28,16 0,0 0,0 0,0l0 0z"/>
+  <path class="fil2 str1" d="M464 178c0,0 0,0 0,0 0,8 -13,15 -29,15 -16,0 -28,-7 -28,-15 0,0 0,0 0,0 0,0 0,0 0,0 0,-9 12,-16 28,-16 16,0 29,7 29,16 0,0 0,0 0,0z"/>
+  <path class="fil2 str1" d="M337 178c0,8 -3,15 -7,15 -4,0 -7,-7 -7,-15 0,-8 3,-16 7,-16 4,0 7,8 7,16l0 0z"/>
+  <path class="fil2 str1" d="M442 178c0,8 -3,15 -7,15 -4,0 -7,-7 -7,-15 0,-8 3,-16 7,-16 4,0 7,8 7,16l0 0z"/>
+  <line class="fil2 str1" x1="322" y1="270" x2="440" y2= "270" />
+ </g>
+</svg>
