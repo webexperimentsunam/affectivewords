@@ -12,6 +12,7 @@
     <script src="jspsych/dist/plugin-survey-multi-choice.js"></script>
     <script src="jspsych/dist/plugin-html-slider-response.js"></script>
     <script src="jspsych/dist/plugin-survey-likert.js"></script>
+    <script src="jspsych/dist/plugin-survey-multi-choice.js"></script>
     <script src="jspsych/dist/plugin-fullscreen.js"></script>
     <script src="jspsych/dist/plugin-instructions.js"></script>
     <script src="jspsych/stimuli.js"></script>
@@ -39,7 +40,7 @@
         button_label: "Comenzar"
     });
 
-
+ 
      var consent = {
         type: jsPsychHtmlButtonResponse,
         stimulus: '<p style="font-size:20px;"><strong>CONSENTIMIENTO INFORMADO</strong></p>' + '<div style="text-align: justify;">'+
@@ -75,42 +76,321 @@
     var demo_sex = {
         type: jsPsychSurveyMultiChoice,
         questions: [{
-            prompt: "Sexo biológico", 
+            prompt: "Sexo biológico:", 
             name: 'Sex', 
             options: ['Hombre', 'Mujer'], 
             required: true
         }],
+        button_label: "Continuar",
         data:{stimulus:"Sex"}
     }
 
     timeline.push(demo_sex); 
 
-    var demo_carrera = {
-        type: jsPsychSurveyText,
-        questions: [
-            {prompt: "¿Qué carrera estudias?", name: "lic"}
-        ],
+    var demo_gender = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Género:", 
+            name: 'Gender', 
+            options: ['Hombre', 'Mujer','No binario'], 
+            required: true
+        }],
         button_label: "Continuar",
-        data:{stimulus:"Field"} 
+        data:{stimulus:"Gender"}
     }
 
-    timeline.push(demo_carrera);
+    timeline.push(demo_gender); 
 
-     var instruc = {
+    var demo_preference = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Preferencia sexual:", 
+            name: 'Preference', 
+            options: ['Heterosexual', 'Homosexual','Bisexual','Asexual'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"Preference"}
+    }
+
+    timeline.push(demo_preference); 
+
+    var demo_prepa = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Tienes preparatoria o carrera técnica:", 
+            name: 'highschool', 
+            options: ['Terminada', 'En curso','Trunca'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"highschool"}
+    }
+
+    timeline.push(demo_prepa); 
+
+    var demo_uni = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Tienes carrera universitaria:", 
+            name: 'bachelor', 
+            options: ['Terminada', 'En curso','Trunca'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"bachelor"}
+    }
+
+    timeline.push(demo_uni); 
+
+    var demo_grade = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Tienes estudios de posgrado:", 
+            name: 'grade', 
+            options: ['Terminado', 'En curso','Trunco'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"grade"}
+    }
+
+    timeline.push(demo_grade);
+
+    var likert_scale_education = [
+        "Muy bajo", 
+        "", 
+        "", 
+        "", 
+        "Muy alto"
+    ];
+
+    var educative_performance = {
+        type: jsPsychSurveyLikert,
+        questions: [
+        {prompt: "¿Cómo evaluarías tu desempeño académico en general a lo largo de tu carrera educativa hasta el momento?", name: 'General', labels: likert_scale_education},
+        {prompt: "¿Cómo calificas tu desempeño académico general del último semestre o grado cursado?", name: 'Reciente', labels: likert_scale_education},
+        ],
+        randomize_question_order: false,
+        button_label: "Continuar",
+        data:{stimulus:"Education"}
+    };
+
+    timeline.push(educative_performance);
+
+    var demo_field = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "En caso de estudios universitarios especificar el área de conocimiento:", 
+            name: 'field', 
+            options: ['Ciencias biológicas y médicas', 
+            'En Ciencias administrativas y económicos',
+            'Ciencias físicas, matemáticas o ingeniería',
+            'Ciencias sociales y humanidades'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"field"}
+    }
+
+    timeline.push(demo_field);
+
+    var demo_occupation = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "¿Cual es tu ocupación actual?", 
+            name: 'occupation', 
+            options: ['Estudiante', 
+            'Empleado asalariado en el sector publico (gobierno, escuela pública)',
+            'Empleado asalariado en el sector privado (empresa privada)',
+            'Trabajador por cuenta propia (independiente - freelance)',
+            'Empleador o dueño de negocio',
+            'Profesional independiente (abogado, medico, contador, consultor, etc.)',
+            'No estudio ni trabajo'
+        ], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"occupation"}
+    }
+
+    timeline.push(demo_occupation); 
+
+    var demo_religion = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "Creencia religiosa:", 
+            name: 'religion', 
+            options: ['Católica',
+            'Protestante o Evangélica',
+            'Testigo de Jehová',
+            'Mormón',
+            'Judaísmo',
+            'Islam',
+            'Budismo',
+            'Ateo',
+            'Agnóstico',
+            'Otra religión'
+        ], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"religion"}
+    }
+
+    timeline.push(demo_religion);
+
+    var likert_scale_emotions = [
+        "Para nada como yo", 
+        "", 
+        "", 
+        "", 
+        "Completamente como yo"
+    ];
+
+    var emotional_reactivity = {
+        type: jsPsychSurveyLikert,
+        questions: [
+        {prompt: "Tiendo a ponerme muy emocional muy fácilmente", name: 'E_1', labels: likert_scale_emotions},
+        {prompt: "Incluso la cosa más pequeña me emociona", name: 'E_2', labels: likert_scale_emotions},
+        {prompt: "Cuando siento emociones, las siento muy fuerte/intensamente", name: 'E_3', labels: likert_scale_emotions},
+        {prompt: "Cuando sucede algo que me molesta, es lo único que puedo pensar durante mucho tiempo", name: 'E_4', labels: likert_scale_emotions},
+        {prompt: "Experimento emociones muy fuertemente", name: 'E_5', labels: likert_scale_emotions},
+        {prompt: "Mis estados de ánimo son muy fuertes y poderosos", name: 'E_6', labels: likert_scale_emotions},
+        {prompt: "Mis emociones van de ser neutrales a extremas en un instante", name: 'E_7', labels: likert_scale_emotions},
+        {prompt: "Cuando me siento emocional, es difícil para mi imaginar sentirme de cualquier otra manera", name: 'E_8', labels: likert_scale_emotions},
+        {prompt: "Con frecuencia me molesto tanto que me es difícil pensar con claridad", name: 'E_9', labels: likert_scale_emotions},
+        {prompt: "Mis sentimientos son lastimados fácilmente ", name: 'E_10', labels: likert_scale_emotions},
+        {prompt: "Cuando estoy emocionalmente molesto, todo mi cuerpo se pone físicamente molesto también  ", name: 'E_11', labels: likert_scale_emotions},
+        {prompt: "Cuando estoy enojado/molesto, me toma mucho más tiempo que a la mayoría de las personas para calmarme", name: 'E_12', labels: likert_scale_emotions},
+        {prompt: "La gente me dice que mis emociones frecuentemente son muy intensas para la situación", name: 'E_13', labels: likert_scale_emotions},
+        {prompt: "Frecuentemente me siento extremadamente ansioso", name: 'E_14', labels: likert_scale_emotions},
+        {prompt: "Frecuentemente me molestan cosas con las que otras personas no reaccionan", name: 'E_15', labels: likert_scale_emotions},
+        {prompt: "Me altero fácilmente", name: 'E_16', labels: likert_scale_emotions},
+        {prompt: "Soy una persona muy sensible", name: 'E_17', labels: likert_scale_emotions},
+        {prompt: "Otras personas me dicen que estoy exagerando", name: 'E_18', labels: likert_scale_emotions},
+        {prompt: "Cuando algo malo sucede, mi estado de animo cambia muy rápidamente. Las personas me dicen que tengo una 'mecha' muy corta", name: 'E_19', labels: likert_scale_emotions},
+        {prompt: "Si tengo un desacuerdo con alguien, me toma mucho tiempo superarlo", name: 'E_20', labels: likert_scale_emotions},
+        {prompt: "Me enojo con las personas muy fácilmente", name: 'E_21', labels: likert_scale_emotions}
+        ],
+        randomize_question_order: false,
+        button_label: "Continuar",
+        data:{stimulus:"emotional_reactivity"}
+    };
+
+    timeline.push(emotional_reactivity);
+
+    var likert_scale_social = [
+        "Nunca", 
+        "Casi nunca", 
+        "A veces", 
+        "Con frecuencia", 
+        "Casi siempre",
+        "Siempre"
+    ];
+
+    var social_behavior = {
+        type: jsPsychSurveyLikert,
+        questions: [
+        {prompt: "Relego mi beneficio personal para ayudar a otros", name: 'S_1', labels: likert_scale_social},
+        {prompt: "Realizo actividades como voluntario", name: 'S_2', labels: likert_scale_social},
+        {prompt: "Cuando siento que alguien está mal le demuestro que lo entiendo", name: 'S_3', labels: likert_scale_social},
+        {prompt: "Actuó como apoyo de los demás ", name: 'S_4', labels: likert_scale_social},
+        {prompt: "Siento todo dolor ajeno como propio", name: 'S_5', labels: likert_scale_social},
+        {prompt: "Me comprometo con causas nobles", name: 'S_6', labels: likert_scale_social},
+        {prompt: "Dedico un tiempo importante de mi vida a mejorar el mundo", name: 'S_7', labels: likert_scale_social},
+        {prompt: "Me ocupo del bienestar de cualquier individuo, grupo o comunidad", name: 'S_8', labels: likert_scale_social},
+        {prompt: "Me quedo con lo justo y necesario para vivir y reparto todo lo demás", name: 'S_9', labels: likert_scale_social},
+        {prompt: "Me pongo en el lugar del otro", name: 'S_10', labels: likert_scale_social},
+        {prompt: "Participo en actividades solidarias", name: 'S_11', labels: likert_scale_social},
+        {prompt: "Hago donaciones a organizaciones benéficas", name: 'S_12', labels: likert_scale_social},
+        {prompt: "Si una persona me cuenta un conflicto, intento que comprenda el punto de vista de la otra parte", name: 'S_13', labels: likert_scale_social},
+        {prompt: "Intento 'levantar' la autoestima a mis amigos", name: 'S_14', labels: likert_scale_social},
+        {prompt: "Aconsejo a conocidos sobre trabajo", name: 'S_15', labels: likert_scale_social}
+
+        ],
+        randomize_question_order: false,
+        button_label: "Continuar",
+        data:{stimulus:"social_behavior"}
+    };
+
+    timeline.push(social_behavior);
+
+    var ses = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [
+            {
+            prompt: "Pensando en el jefe o jefa de hogar, ¿cuál fue el último año de estudios que aprobó en la escuela?", 
+            name: 'socio_schooling', 
+            options: ['No estudio',
+                    'Primaria Incompleta', 
+                    'Primaria Incompleta', 
+                    'Primaria Completa', 
+                    'Secundaria Incompleta',
+                    'Secundaria Completa',
+                    'Carrera comercial',
+                    'Carrera técnica',
+                    'Preparatoria Incompleta',
+                    'Preparatoria Completa',
+                    'Licenciatura Incompleta',
+                    'Licenciatura Completa',
+                    'Diplomado o maestría',
+                    'Doctorado'
+                ], 
+            required: true
+            }, 
+            {
+            prompt: "¿Cuántos baños completos con regadera y W.C. (excusado) hay en tu vivienda?", 
+            name: 'socio_bano', 
+            options: ['0', '1', '2 o más'], 
+            required: true
+            },
+            {
+            prompt: "¿Cuántos automóviles o camionetas tienen en su hogar, incluyendo camionetas cerradas, o con cabina o caja?", 
+            name: 'socio_autos', 
+            options: ['0', '1', '2 o más'], 
+            required: true
+            },
+            {
+            prompt: "Sin tomar en cuenta la conexión móvil que pudiera tener desde algún celular ¿este hogar cuenta con internet?", 
+            name: 'socio_bano', 
+            options: ['No tiene', 'Sí tiene'], 
+            required: true
+            },
+            {
+            prompt: "De todas las personas de 14 años o más que viven en el hogar, ¿cuántas trabajaron en el último mes?", 
+            name: 'socio_work', 
+            options: ['0', '1', '2','3','4 o más'], 
+            required: true
+            },
+            {
+            prompt: "En esta vivienda, ¿cuántos cuartos se usan para dormir, sin contar pasillos ni baños?", 
+            name: 'socio_rooms', 
+            options: ['0', '1', '2','3','4 o más'], 
+            required: true
+            }
+        ],
+        button_label: "Continuar",
+        data:{stimulus:'ses'}
+    };
+
+    timeline.push(ses);
+
+    var instruc = {
         type: jsPsychInstructions,
         pages: [
         '<img src="IMG/SAM_complete1.svg"></img>'+
         '<br>'+
-        'Al conjunto de figuras que están presentes en la pantalla se le llama SAM. <br> Las usarás para calificar cómo te sientes al leer cada palabra. <br> SAM muestra tres tipos de emociones: <br>-<strong>Feliz vs. Triste</strong> <br>-<strong>Emocionado vs. Calmado</strong> <br>-<strong>Controlado vs. Autónomo</strong>',        
-        '<strong>Feliz vs. Triste</strong>'+
+        'Al conjunto de figuras que están presentes en la pantalla se le llama SAM. <br> Las usarás para calificar cómo te sientes al leer cada palabra. <br> SAM muestra tres tipos de emociones: <br>-<strong>Placentero vs. Displacentero</strong> <br>-<strong>Exaltado vs. Calmado</strong> <br>-<strong>En control vs. Fuera de control</strong><br>Fíjate que cada uno de los tres sentimientos se muestra en una escala diferente.',        
+        '<strong>Placentero vs. Displacentero</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_valence.svg"></img>'+'<br>'+ '<br>'+
-        'El <strong>extremo izquierdo</strong> indica cuando te sientes completamente <strong>feliz, contento, satisfecho.</strong> <br>El <strong>extremo derecho</strong> es para cuando te sientes completamente <strong>triste, molesto, insatisfecho.</strong><br><strong>Debes dar click en la figura que mejor represente lo que sientes</strong>. <br>Si tu sentimiento se encuentra en medio o entre dos figuras, <br>da click en el espacio correspondiente o en la figura intermedia.',
-        '<strong>Emocionado vs. Calmado</strong>'+
+        'Esta escala va desde una sonrisa hasta un ceño fruncido. <br> El <strong>extremo izquierdo</strong> indica cuando te sientes completamente <strong>feliz, contento, satisfecho.</strong> <br>El <strong>extremo derecho</strong> es para cuando te sientes completamente <strong>triste, molesto, insatisfecho.</strong><br><strong>Debes dar click en la figura que mejor represente lo que sientes</strong>. <br>Las figuras también te permiten describir sentimientos intermedios de placer, marcando cualquiera de las otras imágenes. <br>Si te sientes completamente neutral, ni feliz ni triste, marca la figura del centro.<br>Si tus sentimientos oscilan entre dos imágenes, marca el espacio entre ellas. <br> Esto te permite hacer calificaciones más detalladas de tus sentimientos ante cada palabra.',
+        '<strong>Exaltado vs. Calmado</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_activation.svg"></img>'+'<br>'+ '<br>'+
-        'En esta escacala, si te sientes completamente <strong>emocionado</strong>, da click en la <strong>figura de la izquierda.<br></strong> Si te sientes completamente <strong>calmado o relajado</strong>, da click en la <strong>figura de la derecha</strong>. <br>Si te sientes en algún punto intermedio, da click en la figura o espacio correspondiente.',
-        '<strong>Controlado vs. Autónomo</strong>'+
+        'En esta escacala, si te sientes completamente <strong>estimulado, emocionado, frenético, inquieto, despierto o activado</strong>, da click en la <strong>figura de la izquierda.<br></strong> Si te sientes completamente <strong>relajado, calmado, lento, apático, soñoliento o no activado</strong>, da click en la <strong>figura de la derecha</strong>. <br>Al igual que con la escala anterior, si presentas niveles intermedios de excitación o calma marca los espacios entre figuras.<br>Si no te sientes ni emocionado ni calmado, marca la figura del centro.',
+        '<strong>En control vs. Fuera de control</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_control.svg"></img>'+'<br>'+ '<br>'+
-        'Esta escala mide el grado de control que tienes sobre la emoción provocada por una palabra. <br>Si te sientes completamente <strong>controlado o influenciado</strong>, da click en la <strong>figura de la izquierda</strong>. <br>Si te sientes en <strong>completo control o autónomo</strong>, da click en la </strong>figura de la derecha<strong>. <br>Si tu sentimiento se encuentra en medio, da click en la figura o espacio correspondiente.',
+        'En estaa escala de sentimiento calificarás si te sentiste controlado o en control. <br>Si te sientes completamente <strong> controlado, influenciado, cuidado, impresionado, sumiso o guiado</strong>, da click en la <strong>figura de la izquierda</strong>. <br>Si te sientes en <strong>en control, influyente, importante, dominante, autónomo o controlador</strong>, da click en la </strong>figura de la derecha<strong>. <br>Nota que cuando la figura es grande, te sientes en control, y será muy pequeña cuando te sientas controlado.<br>Si no te sientes ni en control ni controlado, marca la figura del centro.',
         'Por cada palabra, deberás hacer estas <strong>tres evaluaciones</strong>. <br>Trata de trabajar a un <strong>ritmo rápido y no pienses demasiado</strong> en cada palabra. <br>En su lugar, realiza tus calificaciones basadas en tu <strong>primera reacción</strong>.',
         'Comenzaremos con tres ejemplos de práctica.'
     ],
@@ -152,9 +432,9 @@
                         return stim;
         },
         questions: [
-                    {prompt: "<Feliz-Triste>", name: 'Valencia', labels: valencia_likert_scale,required:true},
-                    {prompt: "<Emocionado-Calmado>", name: 'Activación', labels: arousal_likert_scale,required:true},
-                    {prompt: "<Controlado-Autónomo>", name: 'Control', labels: control_likert_scale,required:true},
+                    {prompt: "Placentero vs. Displacentero", name: 'Valencia', labels: valencia_likert_scale,required:true},
+                    {prompt: "Exaltado vs. Calmado", name: 'Activación', labels: arousal_likert_scale,required:true},
+                    {prompt: "En control vs. Fuera de control", name: 'Control', labels: control_likert_scale,required:true},
                     ],
         slider_width: 350,
         button_label: "Continuar",
@@ -164,9 +444,9 @@
     var word_practice = {
         timeline: [word_stim],
         timeline_variables: [
-            {"Word": "perro"},
-            {"Word": "gato"},
-            {"Word": "ratón"}
+            {"Word": "SALUDABLE"},
+            {"Word": "NARCOTRÁFICO"},
+            {"Word": "CUCHARA"}
         ],
         randomize_order: false,
         repetitions: 1
