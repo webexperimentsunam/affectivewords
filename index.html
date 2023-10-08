@@ -21,7 +21,15 @@
 </head>
 <body></body>
 <script>
-        // initialize jsPsych
+    
+    window.addEventListener('beforeunload', (event) => {
+    // Cancel the event as stated by the standard.
+        event.preventDefault();
+    // Chrome requires returnValue to be set.
+        event.returnValue = '';
+    });
+    
+    // initialize jsPsych
     var jsPsych = initJsPsych();
 
     // create timeline 
@@ -36,7 +44,7 @@
     timeline.push({
         type: jsPsychFullscreen,
         fullscreen_mode: true,
-        message: '<img src="IMG/logos.svg" style = "max-width:100%; height:auto;"></img><p style= "font-size:30px;"><strong>¡Bienvenido!</strong></p><p style= "font-size:20px;">Gracias por participar en esta investigación.</p>',
+        message: '<img src="IMG/logos.svg" style = "max-width:100%; height:auto;"></img><p style= "font-size:30px;"><strong>¡Bienvenido!</strong></p><p style= "font-size:20px;"></p><p>Los investigadores responsables de este proyecto de investigación <p><strong>¡AGRADECEN TU PARTICIPACIÓN!</strong> </p> Dr. Luis Llamas Alonso (Universidad Autónoma de Baja California) <br>Mtro. Vladimir Huerta Chávez (Universidad de Guadalajara) <br> Mtro. Armando Q. Angulo Chavira (Universidad Nacional Autónoma de México)</p>',
         button_label: "Comenzar"
     });
 
@@ -66,7 +74,7 @@
     var birthdate = {
         type: jsPsychSurveyHtmlForm,
         preamble: 'Fecha de nacimiento:',
-        html: '<p><input type="date" id="dob_1" name="dob_2" required></p>',
+        html: '<p><input type="date" id="dob_1" name="dob_2" value="2000-01-01" required></p>',
         button_label: "Continuar",
         data:{stimulus:"Birthday"} 
     }
@@ -186,7 +194,9 @@
             options: ['Ciencias biológicas y médicas', 
             'En Ciencias administrativas y económicos',
             'Ciencias físicas, matemáticas o ingeniería',
-            'Ciencias sociales y humanidades'], 
+            'Ciencias sociales y humanidades',
+            'No aplica'
+        ], 
             required: true
         }],
         button_label: "Continuar",
