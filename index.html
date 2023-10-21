@@ -28,9 +28,23 @@
     // Chrome requires returnValue to be set.
         event.returnValue = '';
     });
+
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    shuffleArray(test_stimuli);
     
     // initialize jsPsych
-    var jsPsych = initJsPsych();
+    var jsPsych = initJsPsych({
+        show_progress_bar: true
+        }
+    );
 
     // create timeline 
     var timeline = [];
@@ -38,13 +52,13 @@
     // Subject ID
     
     const subject_id = jsPsych.randomization.randomID(10);
-    const filename = `${subject_id}.csv`; 
+    //const filename = `${subject_id}.csv`; 
     jsPsych.data.addProperties({ID: subject_id});
 
     timeline.push({
         type: jsPsychFullscreen,
         fullscreen_mode: true,
-        message: '<img src="IMG/logos.svg" style = "max-width:100%; height:auto;"></img><p style= "font-size:30px;"><strong>¡Bienvenido!</strong></p><p style= "font-size:20px;"></p><p>Los investigadores responsables de este proyecto de investigación <p><strong>¡AGRADECEN TU PARTICIPACIÓN!</strong> </p> Dr. Luis Llamas Alonso (Universidad Autónoma de Baja California) <br>Mtro. Vladimir Huerta Chávez (Universidad de Guadalajara) <br> Mtro. Armando Q. Angulo Chavira (Universidad Nacional Autónoma de México)</p>',
+        message: '<img src="IMG/logos.svg" style = "max-width:100%; height:auto;"></img><p style= "font-size:30px;"><strong>¡Bienvenido!</strong></p><p style= "font-size:20px;"></p><p>Los responsables de este proyecto de investigación <p><strong>¡AGRADECEN TU PARTICIPACIÓN!</strong> </p> Dr. Luis Llamas Alonso (Universidad Autónoma de Baja California) <br>Mtro. Vladimir Huerta Chávez (Universidad de Guadalajara) <br> Mtro. Armando Q. Angulo Chavira (Universidad Nacional Autónoma de México)</p>',
         button_label: "Comenzar"
     });
 
@@ -53,7 +67,7 @@
         type: jsPsychHtmlButtonResponse,
         stimulus: '<p style="font-size:20px;"><strong>CONSENTIMIENTO INFORMADO</strong></p>' + '<div style="text-align: justify;">'+
               '<p>Por medio del presente acepto participar en el proyecto de investigación: <strong>"Normas de palabras afectivas en población mexicana"</strong>. <br>Este estudio tiene como objetivo estudiar las emociones y cómo las personas responden a diferentes tipos de palabras.</p>' +
-              '<p>Mi participación tendrá una duración aproximada de 20 minutos. <br> Esta consistirá en contestar un cuestionario sociodemográfico y una prueba de evaluación afectiva de palabras.</p>' +
+              '<p>Mi participación tendrá una duración aproximada de 20 minutos. Si no tienes tiempo ahora, deja esta pestaña abierta o ingresa luego. <br> Esta consistirá en contestar un cuestionario sociodemográfico y una prueba de evaluación afectiva de palabras.</p>' +
               '<p>Al aceptar mi participación soy consciente de que:</p>' +
               '<ul><li>Este estudio no prevé repercusiones físicas ni psicológicas.</li>' +
               '<li>Los datos obtenidos serán usados sólo para fines de investigación.</li></ul>' +
@@ -123,68 +137,38 @@
 
     timeline.push(demo_preference); 
 
-    var demo_prepa = {
+
+
+    var school = {
         type: jsPsychSurveyMultiChoice,
-        questions: [{
-            prompt: "Tienes preparatoria o carrera técnica:", 
-            name: 'highschool', 
-            options: ['Terminada', 'En curso','Trunca'], 
-            required: true
-        }],
-        button_label: "Continuar",
-        data:{stimulus:"highschool"}
-    }
-
-    timeline.push(demo_prepa); 
-
-    var demo_uni = {
-        type: jsPsychSurveyMultiChoice,
-        questions: [{
-            prompt: "Tienes carrera universitaria:", 
-            name: 'bachelor', 
-            options: ['Terminada', 'En curso','Trunca'], 
-            required: true
-        }],
-        button_label: "Continuar",
-        data:{stimulus:"bachelor"}
-    }
-
-    timeline.push(demo_uni); 
-
-    var demo_grade = {
-        type: jsPsychSurveyMultiChoice,
-        questions: [{
-            prompt: "Tienes estudios de posgrado:", 
-            name: 'grade', 
-            options: ['Terminado', 'En curso','Trunco'], 
-            required: true
-        }],
-        button_label: "Continuar",
-        data:{stimulus:"grade"}
-    }
-
-    timeline.push(demo_grade);
-
-    var likert_scale_education = [
-        "Muy bajo", 
-        "", 
-        "", 
-        "", 
-        "Muy alto"
-    ];
-
-    var educative_performance = {
-        type: jsPsychSurveyLikert,
         questions: [
-        {prompt: "¿Cómo evaluarías tu desempeño académico en general a lo largo de tu carrera educativa hasta el momento?", name: 'General', labels: likert_scale_education},
-        {prompt: "¿Cómo calificas tu desempeño académico general del último semestre o grado cursado?", name: 'Reciente', labels: likert_scale_education},
+            {
+            prompt: "¿Cuál es tu grado académico más alto?", 
+            name: 'schooling', 
+            options: ['No estudio',
+                    'Primaria Incompleta', 
+                    'Primaria Incompleta', 
+                    'Primaria Completa', 
+                    'Secundaria Incompleta',
+                    'Secundaria Completa',
+                    'Carrera comercial',
+                    'Carrera técnica',
+                    'Preparatoria Incompleta',
+                    'Preparatoria Completa',
+                    'Licenciatura Incompleta',
+                    'Licenciatura Completa',
+                    'Diplomado o maestría',
+                    'Doctorado'
+                ], 
+            required: true
+            }
         ],
-        randomize_question_order: false,
         button_label: "Continuar",
-        data:{stimulus:"Education"}
+        data:{stimulus:'school'}
     };
 
-    timeline.push(educative_performance);
+    timeline.push(school);
+
 
     var demo_field = {
         type: jsPsychSurveyMultiChoice,
@@ -330,7 +314,7 @@
         type: jsPsychSurveyMultiChoice,
         questions: [
             {
-            prompt: "Pensando en el jefe o jefa de hogar, ¿cuál fue el último año de estudios que aprobó en la escuela?", 
+            prompt: "Pensando en el jefe o jefa de hogar, ¿cuál fue el último año de estudios que aprobó en la escuela? Si tú eres el jefé o jefa de hogar, repite tu escolaridad", 
             name: 'socio_schooling', 
             options: ['No estudio',
                     'Primaria Incompleta', 
@@ -391,16 +375,16 @@
         pages: [
         '<img src="IMG/SAM_complete1.svg"></img>'+
         '<br>'+
-        'Al conjunto de figuras que están presentes en la pantalla se le llama SAM. <br> Las usarás para calificar cómo te sientes al leer cada palabra. <br> SAM muestra tres tipos de emociones: <br>-<strong>Placentero vs. Displacentero</strong> <br>-<strong>Exaltado vs. Calmado</strong> <br>-<strong>En control vs. Fuera de control</strong><br>Fíjate que cada uno de los tres sentimientos se muestra en una escala diferente.',        
+        'Al conjunto de figuras que están presentes en la pantalla se le llama SAM. <br> Las usarás para calificar cómo te sientes al leer cada palabra. <br> SAM muestra tres tipos de emociones: <br>-<strong>Placentero vs. Displacentero</strong> <br>-<strong>Exaltado vs. Calmado</strong> <br>-<strong>En descontrol vs. En control</strong><br>Fíjate que cada uno de los tres sentimientos se muestra en una escala diferente.',        
         '<strong>Placentero vs. Displacentero</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_valence.svg"></img>'+'<br>'+ '<br>'+
         'Esta escala va desde una sonrisa hasta un ceño fruncido. <br> El <strong>extremo izquierdo</strong> indica cuando te sientes completamente <strong>feliz, contento, satisfecho.</strong> <br>El <strong>extremo derecho</strong> es para cuando te sientes completamente <strong>triste, molesto, insatisfecho.</strong><br><strong>Debes dar click en la figura que mejor represente lo que sientes</strong>. <br>Las figuras también te permiten describir sentimientos intermedios de placer, marcando cualquiera de las otras imágenes. <br>Si te sientes completamente neutral, ni feliz ni triste, marca la figura del centro.<br>Si tus sentimientos oscilan entre dos imágenes, marca el espacio entre ellas. <br> Esto te permite hacer calificaciones más detalladas de tus sentimientos ante cada palabra.',
         '<strong>Exaltado vs. Calmado</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_activation.svg"></img>'+'<br>'+ '<br>'+
-        'En esta escacala, si te sientes completamente <strong>estimulado, emocionado, frenético, inquieto, despierto o activado</strong>, da click en la <strong>figura de la izquierda.<br></strong> Si te sientes completamente <strong>relajado, calmado, lento, apático, soñoliento o no activado</strong>, da click en la <strong>figura de la derecha</strong>. <br>Al igual que con la escala anterior, si presentas niveles intermedios de excitación o calma marca los espacios entre figuras.<br>Si no te sientes ni emocionado ni calmado, marca la figura del centro.',
-        '<strong>En control vs. Fuera de control</strong>'+
+        'En esta escala, si te sientes completamente <strong>estimulado, emocionado, frenético, inquieto, despierto o activado</strong>, da click en la <strong>figura de la izquierda.<br></strong> Si te sientes completamente <strong>relajado, calmado, lento, apático, soñoliento o no activado</strong>, da click en la <strong>figura de la derecha</strong>. <br>Al igual que con la escala anterior, si presentas niveles intermedios de excitación o calma marca los espacios entre figuras.<br>Si no te sientes ni emocionado ni calmado, marca la figura del centro.',
+        '<strong>En descontrol vs. En control</strong>'+
         '<br>'+'<br>'+'<img src="IMG/SAM_control.svg"></img>'+'<br>'+ '<br>'+
-        'En esta escala de sentimiento calificarás si te sentiste controlado o en control. <br>Si te sientes completamente <strong> controlado, influenciado, cuidado, impresionado, sumiso o guiado</strong>, da click en la <strong>figura de la izquierda</strong>. <br>Si te sientes en <strong>en control, influyente, importante, dominante, autónomo o controlador</strong>, da click en la </strong>figura de la derecha<strong>. <br>Nota que cuando la figura es grande, te sientes en control, y será muy pequeña cuando te sientas controlado.<br>Si no te sientes ni en control ni controlado, marca la figura del centro.',
+        'La dominancia se refiere a la sensación de control que experimentas en relación con el sentimiento provocado por una palabra. <br>Si te sientes completamente <strong> impotente o sin control</strong>, da click en la <strong>figura de la izquierda</strong>. <br>Si te sientes <strong> dominante y en control</strong>, da click en la <strong>figura de la derecha</strong>. <br>Nota que cuando la figura es grande, te sientes en control, y será muy pequeña cuando te sientas controlado.<br>Si no te sientes ni en control ni controlado, marca la figura del centro.',
         'Por cada palabra, deberás hacer estas <strong>tres evaluaciones</strong>. <br>Trata de trabajar a un <strong>ritmo rápido y no pienses demasiado</strong> en cada palabra. <br>En su lugar, realiza tus calificaciones basadas en tu <strong>primera reacción</strong>.',
         'Comenzaremos con tres ejemplos de práctica.'
     ],
@@ -444,7 +428,7 @@
         questions: [
                     {prompt: "Placentero vs. Displacentero", name: 'Valencia', labels: valencia_likert_scale,required:true},
                     {prompt: "Exaltado vs. Calmado", name: 'Activación', labels: arousal_likert_scale,required:true},
-                    {prompt: "En control vs. Fuera de control", name: 'Control', labels: control_likert_scale,required:true},
+                    {prompt: "En descontrol vs. En control", name: 'Control', labels: control_likert_scale,required:true},
                     ],
         slider_width: 350,
         button_label: "Continuar",
@@ -466,7 +450,7 @@
     var instruc_2 = {
         type: jsPsychInstructions,
         pages: [
-        '<strong>¡Muy bien!</strong> <br>La prueba comenzará cuando presiones el botón "Siguiente"'
+        '<strong>¡Muy bien!</strong> <br> Calificarás un total de 100 palabras y tu avance se guardará cada 25 palabras. <br> <strong>Si no logras completar la actividad, intenta llegar al menos al punto de guardado.</strong><br> Sabrás que has llegado porque las palabras se detendrán por un momento.<br>Si necesitas atender algo ajeno a la tarea, puedes hacerlo.<br> Es posible alternar entre pestañas o aplicaciones, pero evita cerrar el navegador para no perder tu progreso.<br>La prueba comenzará cuando presiones el botón "Siguiente"'
     ],
     show_clickable_nav: true,
     button_label_previous: 'Previo',
@@ -474,34 +458,84 @@
     }
     timeline.push(instruc_2);
 
-    var word_trial = {
+    var word_trial1 = {
         timeline: [word_stim],
-        timeline_variables: test_stimuli,
+        timeline_variables: test_stimuli.slice(0, 24),
         randomize_order: true,
         repetitions: 1,
-        sample: {
-        type: 'without-replacement',
-        size: 100
-    }    
     }
-    timeline.push(word_trial); 
+    timeline.push(word_trial1); 
 
     
     
-    const save_data = {
+    const save_data1 = {
         type: jsPsychPipe,
         action: "save",
         experiment_id: "PVSJR6I83IgW",
-        filename: filename,
+        filename: `${subject_id}_block1.csv`,
         data_string: ()=>jsPsych.data.get().csv()
     };
+
+    timeline.push(save_data1);
+
+    var word_trial2 = {
+        timeline: [word_stim],
+        timeline_variables: test_stimuli.slice(25, 49),
+        randomize_order: true,
+        repetitions: 1,
+    }
+    timeline.push(word_trial2);
+
+    const save_data2 = {
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "PVSJR6I83IgW",
+        filename: `${subject_id}_block2.csv`,
+        data_string: ()=>jsPsych.data.get().csv()
+    };
+
+    timeline.push(save_data2);
+
+    var word_trial3 = {
+        timeline: [word_stim],
+        timeline_variables: test_stimuli.slice(50, 74),
+        randomize_order: true,
+        repetitions: 1,
+    }
+    timeline.push(word_trial3);
+
+    const save_data3 = {
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "PVSJR6I83IgW",
+        filename: `${subject_id}_block3.csv`,
+        data_string: ()=>jsPsych.data.get().csv()
+    };
+
+    timeline.push(save_data3);
+
+    var word_trial4 = {
+        timeline: [word_stim],
+        timeline_variables: test_stimuli.slice(75, 99),
+        randomize_order: true,
+        repetitions: 1,
+    }
+    timeline.push(word_trial4); 
+    
+    const save_data4 = {
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "PVSJR6I83IgW",
+        filename: `${subject_id}_block4.csv`,
+        data_string: ()=>jsPsych.data.get().csv()
+    };
+
+    timeline.push(save_data4);
 
     timeline.push({
         type: jsPsychFullscreen,
         fullscreen_mode: false
     });
-
-    timeline.push(save_data);
 
         var end_exp = {
         type: jsPsychHtmlButtonResponse,
