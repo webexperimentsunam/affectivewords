@@ -46,6 +46,9 @@
         }
     );
 
+    const start_time = Date.now();
+    jsPsych.data.addProperties({Date: start_time});
+
     // create timeline 
     var timeline = [];
 
@@ -88,12 +91,41 @@
     var birthdate = {
         type: jsPsychSurveyHtmlForm,
         preamble: 'Fecha de nacimiento:',
-        html: '<p><input type="date" id="dob_1" name="dob_2" value="2000-01-01" required></p>',
+        html: '<p><input type="date" id="dob_1" name="dob_2" value="2000-02-29" required></p>',
         button_label: "Continuar",
         data:{stimulus:"Birthday"} 
     }
 
     timeline.push(birthdate); 
+
+    var demo_mex = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "¿Eres mexicano?", 
+            name: 'Mex', 
+            options: ['Sí', 'No'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"Mex"}
+    }
+
+    timeline.push(demo_mex);
+    
+    var demo_esp = {
+        type: jsPsychSurveyMultiChoice,
+        questions: [{
+            prompt: "¿Tu lengua materna es el español?", 
+            name: 'Esp', 
+            options: ['Sí', 'No'], 
+            required: true
+        }],
+        button_label: "Continuar",
+        data:{stimulus:"Esp"}
+    }
+
+    timeline.push(demo_esp); 
+
 
     var demo_sex = {
         type: jsPsychSurveyMultiChoice,
